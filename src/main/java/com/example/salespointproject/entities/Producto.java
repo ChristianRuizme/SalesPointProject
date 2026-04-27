@@ -1,8 +1,9 @@
 package com.example.salespointproject.entities;
 
-import jakarta.persistence.*;   //Jakarta Persistence API ayuda con el ORM
+import jakarta.persistence.*;   //Jakarta Persistence API ayuda con el ORM, (@Entity, @Table, @Id, etc)
 import jakarta.validation.constraints.*;    //Etiquetas de validacion
 import lombok.*;    //Setters, getters y constructores
+import java.time.LocalDateTime; //Tema de horas
 
 @Entity
 @Table(name = "productos")
@@ -27,6 +28,8 @@ public class Producto {
     //scale: num de decimales, updatable: es actualizable, columnDefinition: comando SQL
     private String codigoBarras;
 
+    @NotBlank(message = "La descripcion del producto no puede estar vacía")
+    @Column(nullable = false)
     private String descripcion;
 
     @NotBlank(message = "El nombre del producto no puede estar vacío")
@@ -48,5 +51,20 @@ public class Producto {
     @Column(nullable = false)
     private Double precioCosto;
 
+    @Column(updatable = false)
+    private LocalDateTime fechaCreacion;
+
+    private LocalDateTime fechaActualizacion;
+
     private Boolean activo = true;
+
+    //Metodos
+    //PrePersist, se ejecuta antes de crear cada objeto
+    @PrePersist
+    protected void onCreate() {
+        this.fechaCreacion = LocalDateTime.now();
+        if(this.activo == null) {
+            this.activo = true;
+        }
+    }
 }
