@@ -1,8 +1,11 @@
 package com.example.salespointproject.entities;
 
+//Imports de librerias
 import jakarta.persistence.*;   //Jakarta Persistence API ayuda con el ORM, (@Entity, @Table, @Id, etc)
 import jakarta.validation.constraints.*;    //Etiquetas de validacion
 import lombok.*;    //Setters, getters y constructores
+
+//Imports de java
 import java.time.LocalDateTime; //Tema de horas
 
 @Entity

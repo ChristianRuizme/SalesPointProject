@@ -6,6 +6,8 @@ import com.example.salespointproject.entities.Producto;
 //Importo librerias
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;   //Comandos SQL precargados de ahi extiendo
+
+//Imports de java
 import java.util.Optional;  //Es para evitar el NullPointerException (si es null, regresa vacio)
 
 @Repository
