@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductoService} from '../../../Core/Services/producto.service';
+import { ProductoService} from '../../../core/services/producto.service';
 import { Producto} from '../../../Shared/models/producto.model';
 
 //Metadata
