@@ -6,16 +6,13 @@ import com.example.salespointproject.services.ProductoService;
 
 //Imports de Spring Boot
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 //Imports de Java
 import java.util.List;
 
 @RestController
-@RequestMapping(/api/productos)
+@RequestMapping("/api/productos")
 public class ProductoController {
 
     @Autowired
