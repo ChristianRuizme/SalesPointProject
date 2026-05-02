@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService} from '../../../core/services/producto.service';
-import { Producto} from '../../../Shared/models/producto.model';
+import { Producto} from '../../../shared/models/producto.model';
 
 //Metadata
 @Component({
   selector: 'app-lista-productos',
+  imports: [],
   templateUrl: './lista-productos.html',
   styleUrl: './lista-productos.scss',
   standalone: true

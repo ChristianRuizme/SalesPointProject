@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 
 //Imports de otros documentos
-import { Producto } from '../../Shared/models/producto.model';
+import { Producto } from '../../shared/models/producto.model';
 
 //Se crea una instancia de esta clase al arrancar y se va al root para usarse facilmente
 @Injectable({
