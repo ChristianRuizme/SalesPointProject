@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import {ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,14 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './login.scss',
   standalone: true
 })
+
 export class LoginComponent implements OnInit {
+
+  //Configuracion del formulario
+  protected loginForm = new FormGroup({
+    user: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)])
+  })
 
   constructor(private router: Router)  {   }
 
@@ -20,7 +27,11 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    console.log("Iniciando sesion");
-    this.router.navigate(['/inventario']);
+    if (this.loginForm.valid) {
+      console.log("Datos del formulario: ", this.loginForm.value);
+      this.router.navigate(['/inventario']);
+    } else {
+      console.log("Formulario no valido");
+    }
   }
 }

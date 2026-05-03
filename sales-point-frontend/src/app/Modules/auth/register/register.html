@@ -1,1 +1,36 @@
-<p>register works!</p>
+<div class="register-contenedor">
+  <div class="register-card">
+    <h2>Sales Point System LogIn</h2>
+    <p>Ingresa tus datos para continuar</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <div class="form-group">
+        <label for="user">Nombre</label>
+        <input type="text" id="user" name="user">
+      </div>
+
+      <div class="form-group">
+        <label for="user">Correo Electronico</label>
+        <input type="text" id="email" name="email">
+      </div>
+
+      <div class="form-group">
+        <label for="user">Contraseña</label>
+        <input type="text" id="password" name="password">
+      </div>
+
+      <div class="form-group">
+        <label for="user">Rol de Usuario</label>
+        <select formControlName="role">
+          <option value="ADMIN">Administrador</option>
+          <option value="CAJERO">Cajero</option>
+          <option value="SUPERVISOR">Supervisor</option>
+        </select>
+      </div>
+
+    </form>
+
+    <button type="submit" class="button-register">Registrarse</button>
+
+  </div>
+</div>
