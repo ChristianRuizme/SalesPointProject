@@ -1,6 +1,6 @@
 <div class="register-contenedor">
   <div class="register-card">
-    <h2>Sales Point System LogIn</h2>
+    <h2>Sales Point System Registration</h2>
     <p>Ingresa tus datos para continuar</p>
 
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
@@ -16,7 +16,10 @@
 
       <div class="form-group">
         <label for="user">Contraseña</label>
-        <input type="text" id="password" name="password">
+        <input [type]="hidePassword ? 'password' : 'text'" id="password" name="password">
+        <button type="button" (click)="hidePassword = !hidePassword">
+          {{hidePassword ? 'Mostrar' : 'Ocultar'}}
+        </button>
       </div>
 
       <div class="form-group">

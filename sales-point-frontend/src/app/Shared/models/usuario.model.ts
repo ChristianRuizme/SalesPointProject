@@ -1,5 +1,5 @@
 //Imports de otros archivos
-import { Role} from './role.enum';
+import { Role } from './role.enum';
 
 export interface Usuario {
   name: String;
