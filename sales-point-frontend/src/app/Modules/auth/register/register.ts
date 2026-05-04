@@ -1,6 +1,10 @@
+//Imports de otros archivos
+import { Role} from '../../../shared/models/role.enum';
+
+//Imports de Angular
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +22,7 @@ export class RegisterComponent {
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    role: new FormControl('CAJERO', [Validators.required])
+    role: new FormControl('', [Validators.required])
   })
 
   constructor(private router: Router)  {   }

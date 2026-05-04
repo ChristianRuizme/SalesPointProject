@@ -1,7 +1,7 @@
 package com.example.salespointproject.repositories;
 
 //Importo otras clases que use
-import com.example.salespointproject.entities.Producto;
+import com.example.salespointproject.model.entities.Producto;
 
 //Importo librerias
 import org.springframework.stereotype.Repository;

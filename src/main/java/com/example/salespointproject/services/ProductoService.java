@@ -1,7 +1,7 @@
 package com.example.salespointproject.services;
 
 //Importo otras clases que uso
-import com.example.salespointproject.entities.Producto;
+import com.example.salespointproject.model.entities.Producto;
 import com.example.salespointproject.repositories.ProductoRepository;
 
 //Imports de Spring Boot

@@ -1,7 +1,7 @@
 //Imports de Angular
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 //Imports de otros documentos
 import { Producto } from '../../shared/models/producto.model';

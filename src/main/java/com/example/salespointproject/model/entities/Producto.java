@@ -1,4 +1,4 @@
-package com.example.salespointproject.entities;
+package com.example.salespointproject.model.entities;
 
 //Imports de librerias
 import jakarta.persistence.*;   //Jakarta Persistence API ayuda con el ORM, (@Entity, @Table, @Id, etc)

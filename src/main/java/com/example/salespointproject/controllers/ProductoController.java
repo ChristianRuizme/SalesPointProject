@@ -1,7 +1,7 @@
 package com.example.salespointproject.controllers;
 
 //Importo otros documentos
-import com.example.salespointproject.entities.Producto;
+import com.example.salespointproject.model.entities.Producto;
 import com.example.salespointproject.services.ProductoService;
 
 //Imports de Spring Boot
