@@ -6,6 +6,7 @@ import com.example.salespointproject.model.entities.Usuario;
 
 //Imports de librerias
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 //Imports de java
@@ -18,6 +19,9 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     public List<Usuario> listarTodos() {
         return usuarioRepository.findAll();
     }
@@ -27,6 +31,9 @@ public class UsuarioService {
     }
 
     public Usuario guardar(Usuario usuario) {
+        //.encode() para encriptar
+        String encryptedPassword = passwordEncoder.encode(usuario.getPassword());
+        usuario.setPassword(encryptedPassword);
         return usuarioRepository.save(usuario);
     }
 
