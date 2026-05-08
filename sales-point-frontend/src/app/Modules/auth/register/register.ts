@@ -5,13 +5,15 @@ import { Role } from '../../../shared/models/role.enum';
 //Imports de Angular
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-register',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './register.html',
   styleUrl: './register.scss',
@@ -37,6 +39,7 @@ export class RegisterComponent {
 
   //Al final los metodos
   onRegister() {
+    console.log("Click detectado");
     if (this.registerForm.valid) {
       console.log("Datos del formulario para backend: ", this.registerForm.value);
       this.authService.crearUsuario(this.registerForm.value as Usuario).subscribe({

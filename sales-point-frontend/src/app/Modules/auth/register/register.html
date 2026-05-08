@@ -6,17 +6,17 @@
     <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
       <div class="form-group">
         <label for="user">Nombre</label>
-        <input type="text" id="user" name="user">
+        <input type="text" id="user" formControlName="name">
       </div>
 
       <div class="form-group">
         <label for="user">Correo Electronico</label>
-        <input type="text" id="email" name="email">
+        <input type="text" id="email" formControlName="email">
       </div>
 
       <div class="form-group">
         <label for="user">Contraseña</label>
-        <input [type]="hidePassword ? 'password' : 'text'" id="password" name="password">
+        <input [type]="hidePassword ? 'password' : 'text'" id="password" formControlName="password">
         <button type="button" (click)="hidePassword = !hidePassword">
           {{hidePassword ? 'Mostrar' : 'Ocultar'}}
         </button>
@@ -31,9 +31,8 @@
         </select>
       </div>
 
+      <button type="submit" class="button-register">Registrarse</button>
+
     </form>
-
-    <button type="submit" class="button-register">Registrarse</button>
-
   </div>
 </div>
