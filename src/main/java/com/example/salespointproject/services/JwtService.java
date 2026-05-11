@@ -18,7 +18,7 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    //Saco los valores de mis variables de entorno
+    //Saco los valores de mis variables de entorno de mi application.properties
     @Value("${jwt.secret}")
     private String JWT_KEY;
     @Value("${jwt.expiration}")

@@ -1,6 +1,7 @@
 package com.example.salespointproject.services;
 
 //Imports de otras clases que uso
+import com.example.salespointproject.exceptions.AuthExceptions;
 import com.example.salespointproject.repositories.UsuarioRepository;
 import com.example.salespointproject.model.entities.Usuario;
 
@@ -28,6 +29,10 @@ public class UsuarioService {
 
     public Optional<Usuario> buscarPorId(Long id) {
         return usuarioRepository.findById(id);
+    }
+
+    public Usuario buscarPorEmail(String email) {
+        return usuarioRepository.findByEmail(email).orElseThrow(() -> new AuthExceptions.usuarioNoEncontradoException(email));
     }
 
     public Usuario guardar(Usuario usuario) {

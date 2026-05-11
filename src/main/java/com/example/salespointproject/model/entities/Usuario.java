@@ -4,14 +4,16 @@ import com.example.salespointproject.model.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "usuarios")
 @Data
+@Builder    //Para poder construir usuarios a base de otros objetos
+@AllArgsConstructor     //builder() lo ocupa para poder funcionar
 @NoArgsConstructor
-@AllArgsConstructor
 public class Usuario {
     //Atributos
     @Id
