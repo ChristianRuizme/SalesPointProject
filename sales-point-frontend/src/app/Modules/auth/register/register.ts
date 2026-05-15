@@ -21,6 +21,9 @@ import {AuthService} from '../../../core/services/auth.service';
 })
 export class RegisterComponent {
 
+  //Variables
+  mensaje : String = "";
+
   //Configuracion del formulario, esto va primero
   protected registerForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
