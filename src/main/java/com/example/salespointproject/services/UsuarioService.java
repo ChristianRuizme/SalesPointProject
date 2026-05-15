@@ -32,7 +32,7 @@ public class UsuarioService {
     }
 
     public Usuario buscarPorEmail(String email) {
-        return usuarioRepository.findByEmail(email).orElseThrow(() -> new AuthExceptions.usuarioNoEncontradoException(email));
+        return usuarioRepository.findByEmail(email).orElseThrow(() -> new AuthExceptions.UsuarioNoEncontradoException(email));
     }
 
     public Usuario guardar(Usuario usuario) {
@@ -40,6 +40,12 @@ public class UsuarioService {
         String encryptedPassword = passwordEncoder.encode(usuario.getPassword());
         usuario.setPassword(encryptedPassword);
         return usuarioRepository.save(usuario);
+    }
+
+    public void validarEmailUnico(String email) {
+        if (usuarioRepository.existsByEmail(email)) {
+            throw new AuthExceptions.EmailYaRegistradoException(email);
+        }
     }
 
     public void eliminar(Long id) {

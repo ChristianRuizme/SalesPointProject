@@ -37,20 +37,20 @@ export class RegisterComponent {
     private authService: AuthService
   )  { }
 
-  //Al final los metodos
-  onRegister() {
-    console.log("Click detectado");
-    if (this.registerForm.valid) {
-      console.log("Datos del formulario para backend: ", this.registerForm.value);
-      this.authService.crearUsuario(this.registerForm.value as Usuario).subscribe({
-        next: (res) => {
-          console.log("Registrado en la DB");
-          this.router.navigate(['/inventario']);
-        },
-        error: (err) => {
-          console.log("Error al registrar: ", err);
-        }
-      });
+    //Al final los metodos
+    onRegister() {
+      console.log("Click detectado");
+      if (this.registerForm.valid) {
+        console.log("Datos del formulario para backend: ", this.registerForm.value);
+        this.authService.crearUsuario(this.registerForm.value as Usuario).subscribe({
+          next: (res) => {
+            console.log("Registrado en la DB");
+            this.router.navigate(['/inventario']);
+          },
+          error: (err) => {
+            console.log("Error al registrar: ", err);
+          }
+        });
+      }
     }
-  }
 }

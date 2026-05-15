@@ -47,6 +47,9 @@ public class AuthController {
     @PostMapping("/register")
     @Transactional  //Si algo falla no guarda datos
     public ResponseEntity<?> registrar(@RequestBody UserRegistrationDTO dtoRegistro, HttpServletResponse response) {
+        //Reviso exceptions
+        usuarioService.validarEmailUnico(dtoRegistro.getEmail());
+
         //Paso mi DTO a usuario
         Usuario usuario = Usuario.builder()
                 .name(dtoRegistro.getName())
@@ -71,7 +74,7 @@ public class AuthController {
         boolean esValida = passwordEncoder.matches(dtoLogin.getPassword(), usuarioDB.getPassword());
 
         if (!esValida) {
-            throw new AuthExceptions.contrasenaIncorrectaException();
+            throw new AuthExceptions.ContrasenaIncorrectaException();
         } else {
             String token = jwtService.generateToken(usuarioDB);
             cookieUtil.crearCookieToken(response, token);

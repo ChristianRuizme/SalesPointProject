@@ -20,4 +20,8 @@ export class AuthService {
     return this.http.post<Usuario>(`${this.apiUrl}/register`, usuario);
   }
 
+  identificarUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(`${this.apiUrl}/login`, usuario)
+  }
+
 }
