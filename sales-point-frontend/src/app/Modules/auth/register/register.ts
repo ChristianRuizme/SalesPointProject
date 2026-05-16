@@ -1,5 +1,6 @@
 //Imports de otros archivos
 import { Usuario } from '../../../shared/models/usuario.model';
+import { AuthService } from '../../../core/services/auth.service';
 import { Role } from '../../../shared/models/role.enum';
 
 //Imports de Angular
@@ -7,7 +8,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import {AuthService} from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +22,7 @@ import {AuthService} from '../../../core/services/auth.service';
 export class RegisterComponent {
 
   //Variables
-  mensaje : String = "";
+  mensajeErrorMostrable : String = "";
 
   //Configuracion del formulario, esto va primero
   protected registerForm = new FormGroup({
@@ -52,6 +52,7 @@ export class RegisterComponent {
           },
           error: (err) => {
             console.log("Error al registrar: ", err);
+            this.mensajeErrorMostrable = err;
           }
         });
       }
